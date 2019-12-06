@@ -1,26 +1,24 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import { render } from '@testing-library/react';
 
-function App() {
+const Button = function(props) {
+  return <button onClick={props.click}>{props.text}</button>;
+};
+
+const Display = function(props) {
+  return <p>{props.value}</p>;
+};
+
+const Model = function() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Button click={() => alert('Add')} text='Buy One' />
+      <Display value={0} />
+      <Button click={() => alert('Decrease')} text='Eat One' />
     </div>
   );
-}
+};
 
-export default App;
+export default Model;
